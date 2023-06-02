@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+    color: #fff;
+	height: 100vh;
+
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+
+#main{
+    display: flex;
+    flex-direction: column;
+align-items: center;
+}
+
+#main #edi{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+#edi input{
+    width:200px ;
+    height:25px ;
+    border: none;
+}
+#edi input:focus{
+    outline:2px solid #95c9dc;
+    border-radius: 10px;
+}
+button{
+height: 25px;
+background-color: transparent;
+outline: 1px solid #fff;
+border: none;
+color: white;
+transition: 0.4s;
+}
+button:hover{
+background-color: #e73c7e;
+color: #fff;
+border-radius: 10px;
+
+}
+#table ,#table1{
+display: flex;
+flex-wrap:nowrap ;
+justify-content: flex-start;
+flex-direction: column;
+background-color: transparent;
+border: 1px solid #fff;
+border-radius: 10px;
+width:550px ;
+}
+li {
+            list-style-type: none;
+            border: 1px solid white;
+            padding: 10px;
+            margin-left: -40px;
+            display: flex;
+        
+            align-items: center;
+        }
+#pro{
+display: flex;
+margin: 10px 20px;
+padding: 20px 10px;
+}
+img{
+    height: 60px;
+    width: 100px;
+}
+.text {
+            margin-left: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div id="main">
+        <div id="edi">
+            Upload Image <input type="text" id="img">
+            <span id="im" style="display:none;margin-top: 5px;" ><i style="color:red;" id="ic1" class="fa-solid fa-circle-exclamation"></i>&nbsp;Please Fill This Field</span><br>
+            Food Name<input type="text" id="inp">
+            <span id="na" style="display:none;margin-top: 5px;" ><i style="color:red;" id="ic2" class="fa-solid fa-circle-exclamation"></i>&nbsp; Please Fill This Field</span><br>
+            <button onclick="bur()">Add Fast Food</button><br>
+            <button onclick="des()">Add Desert</button>
+        </div>
+      
+       
+    </div>
+    <div id="pro" >
+
+        <ul id="table">
+            <h1 style="border-bottom:1px solid white;width:106%;margin-left: -35px;" >Fast Food</h1>
+                       
+        </ul>
+        <ul id="table1" style="margin-left: 10px;">
+            <h1 style="border-bottom:1px solid white;width:106%;margin-left: -35px;" >Desert</h1>
+            
+        </ul>
+        
+    </div>
+    <script>
+        function bur() {
+            var inp = document.getElementById("inp");
+            var pic = document.getElementById("img");
+            var tab = document.getElementById("table");
+            if (inp.value!==""&&pic.value!=="") {
+                
+                var li = document.createElement("li");
+                var img = document.createElement("img");
+        var span = document.createElement("span"); 
+        var litxt = document.createTextNode(inp.value);
+        span.appendChild(litxt); 
+        span.style.marginLeft = "10px"; 
+        img.setAttribute("src", pic.value);
+        img.setAttribute("alt", inp.value);
+        li.appendChild(img);
+        li.appendChild(span);
+        tab.appendChild(li);
+        inp.value = "";
+        pic.value = "";
+                var im=document.getElementById("im")
+              var na=document.getElementById("na")
+              im.style.display="none";
+              pic.style.border="none";
+              na.style.display="none";
+              inp.style.border="none";
+            
+            }
+            else{
+              var im=document.getElementById("im")
+              var na=document.getElementById("na")
+              im.style.display="block";
+              pic.style.border="1px solid red";
+              na.style.display="block";
+              inp.style.border="1px solid red";
+            
+            }
+            }
+        function des(){
+
+            var inp = document.getElementById("inp");
+            var pic = document.getElementById("img");
+            var tab = document.getElementById("table1");
+            if (inp.value!==""&&pic.value!=="") {
+                
+                var li = document.createElement("li");
+                var img = document.createElement("img");
+        var span = document.createElement("span"); 
+        var litxt = document.createTextNode(inp.value);
+        span.appendChild(litxt); 
+        span.style.marginLeft = "10px"; 
+        img.setAttribute("src", pic.value);
+        img.setAttribute("alt", inp.value);
+        li.appendChild(img);
+        li.appendChild(span);
+        tab.appendChild(li);
+        inp.value = "";
+        pic.value = "";
+                var im=document.getElementById("im")
+              var na=document.getElementById("na")
+              im.style.display="none";
+              pic.style.border="none";
+              na.style.display="none";
+              inp.style.border="none";
+            
+            }
+            else{
+              var im=document.getElementById("im")
+              var na=document.getElementById("na")
+              im.style.display="block";
+              pic.style.border="1px solid red";
+              na.style.display="block";
+              inp.style.border="1px solid red";
+            
+            }
+            }
+    
+
+    </script>
+    
+
+
+
+</script>
+
+</body>
+</html>
